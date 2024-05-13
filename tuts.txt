@@ -1,0 +1,75 @@
+================== initialize npm
+
+----> npm init -y
+
+========== add ts as dev dependency
+
+----> npm i typescript --save-dev
+
+================== install ambient node.js types for ts. types that are added globally in global execution context
+
+----> npm i @types/node --save-dev
+
+================== create tsconfig.json
+
+npx tsc --init --rootDir src --outDir build \
+--esModuleInterop --resolveJsonModule --lib es6 \
+--module commonjs --allowJs true --noImplicitAny true
+
+================== create a src folder
+
+================== compile typescript files
+
+----> npx tsc
+
+================== install ts-node and nodemon
+ts-node for running TypeScript code directly without having to wait for it be compiled, and nodemon, to watch for changes to our code and automatically restart when a file is changed.
+
+----> npm i --save-dev ts-node nodemon
+
+================== create nodemon.json
+
+{
+  "watch": ["src"],
+  "ext": ".ts,.js",
+  "ignore": [],
+  "exec": "npx ts-node ./src/index.ts"
+}
+
+watch: directories that nodemon should monitor for changes. In this case, it's monitoring the src directory.
+
+ext: watching for changes in files with .ts and .js extensions.
+
+ignore: specifies patterns or files that nodemon should ignore.
+
+exec: command that nodemon should execute when changes are detected.
+
+difference between npm and npx:
+-> npm: Used for installing and managing Node.js packages.
+-> npx: Used for executing Node.js packages without installing them globally.
+
+================== add script in package.json
+
+"start:dev": "npx nodemon"
+
+By running npm run start:dev, npx nodemon will start our app using npx ts-node ./src/index.ts, watching for changes to .ts and .js files from within /src.
+
+================== creating production build
+
+-> install rimraf, its cross platform and works like rm -rf command that removes everything
+----> npm install --save-dev rimraf
+
+-> add build script to package.json
+----> "build": "rimraf ./build && tsc"
+here rimraf will remove old build folder and ts compiler will emit new code to dist wit tsc command.
+
+================== add production startup script
+
+----> "start": "npm run build && node build/index.js"
+
+"npm run build" will executiont the production build commands and "node bulid/index.js" will start the server from index.js file
+
+================== if we want to work with es module
+
+set "type": "module" in package.json
+set "module": "NodeNext" in tsconfig.json
