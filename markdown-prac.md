@@ -15,24 +15,39 @@ to create headings we can use hash
 
 # Typography
 
-double asterics for **bold**  
-underscore does the **same**  
-single asterics for _italic_  
-underscore does the _same_  
-**_this is bold and italic_**  
-this is ~~crossed off~~
-this is <mark>highlighted text</mark>  
-superscript: x<sup>2</sup>  
-subscript: x<sub>2</sub>  
+code: `double asterics for **bold**`  
+output: double asterics for **bold**
+
+code: `single underscore for _italic_`  
+output: single underscore for _italic_
+
+code: `**_this is bold and italic_**`  
+output: **_this is bold and italic_**
+
+code: `this is ~~strike through~~`  
+outptut: this is ~~strike through~~
+
+code `this is <mark>highlighted text</mark>`  
+output: this is <mark>highlighted text</mark>
+
+code: `x<sup>2</sup>`  
+output: superscript: x<sup>2</sup>
+
+code: `x<sub>2</sub>`  
+subscript: x<sub>2</sub>
+
 emoji: just put an emoji 👍
 
 # Code
 
 ### Single line code
 
+Put backticks for single line code  
 `Console.log('single line code');`
 
 ### Multi line code
+
+Put 3 backticks for multiline code
 
 ```js
 const a = [1, 2, 3];
@@ -59,11 +74,11 @@ console.log('done');
 
 # Inserting image
 
-#### Code
+### Code:
 
-`![Google Logo](image address)`
+`![Google Logo](image_address)`
 
-#### Demo
+### Demo:
 
 ![Google Logo](https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png)
 
@@ -88,13 +103,52 @@ Line2
 
 ### Ordered list
 
+#### Code:
+
+```markdown
 1. item1
-2. item3
+2. item2
+3. item3
+```
+
+#### Output:
+
+1. item1
+2. item2
 3. item3
 
 ### Unordered list
 
+#### Code:
+
+```markdown
 -   item1
 -   item2
     -   item3
-    -   item 4
+    -   item4
+```
+
+#### Output:
+
+-   item1
+-   item2
+    -   item3
+    -   item4
+
+# Table
+
+### Code:
+
+```markdown
+| column1 | column2 | column3 |
+| :------ | :-----: | ------: |
+| a       |    b    |       c |
+| x       |    y    |       z |
+```
+
+### Output:
+
+| column1 | column2 | column3 |
+| :------ | :-----: | ------: |
+| a       |    b    |       c |
+| x       |    y    |       z |
